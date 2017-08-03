@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<queries xmlns="http://schemas.haulmont.com/cuba/rest-queries.xsd">
+    <query entity="demo$Customer"
+           name="customer-by-name"
+           view="_local">
+        <jpql>
+            <![CDATA[select c from demo$Customer c where c.name = :name]]>
+        </jpql>
+        <params>
+            <param name="name"
+                   type="java.lang.String"/>
+        </params>
+    </query>
+    <query entity="demo$Customer"
+           name="customer-by-email"
+           view="_local">
+        <jpql>
+            <![CDATA[select c from demo$Customer c where c.email = :email]]>
+        </jpql>
+        <params>
+            <param name="email"
+                   type="java.lang.String"/>
+        </params>
+    </query>
+</queries>

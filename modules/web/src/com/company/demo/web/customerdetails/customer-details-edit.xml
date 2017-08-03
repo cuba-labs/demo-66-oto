@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.demo.web.customerdetails.CustomerDetailsEdit"
+        datasource="customerDetailsDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.demo.web.customerdetails">
+    <dsContext>
+        <datasource id="customerDetailsDs"
+                    class="com.company.demo.entity.CustomerDetails"
+                    view="customerDetails-view">
+            <collectionDatasource id="phonesDs"
+                                  property="phones"/>
+        </datasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="customerDetailsDs">
+            <column width="250px">
+                <field property="address"/>
+                <field property="comments"
+                       rows="5"/>
+            </column>
+        </fieldGroup>
+        <groupBox id="phonesBox"
+                  caption="msg://com.company.demo.entity/CustomerDetails.phones">
+            <table id="phonesTable"
+                   height="200px"
+                   width="100%">
+                <actions>
+                    <action id="create"/>
+                    <action id="edit"/>
+                    <action id="remove"/>
+                </actions>
+                <columns>
+                    <column id="number"/>
+                    <column id="type"/>
+                </columns>
+                <rows datasource="phonesDs"/>
+                <buttonsPanel>
+                    <button action="phonesTable.create"/>
+                    <button action="phonesTable.edit"/>
+                    <button action="phonesTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>
